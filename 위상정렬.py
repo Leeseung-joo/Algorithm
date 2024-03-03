@@ -14,7 +14,7 @@ def topology_sort():
     result = []
     q = deque()
     
-    for i in range(1,v+1): #진입차수가 0인 노드를 큐에 삽입
+    for i in range(1,v+1): #노드 중에서 진입차수가 0인 노드를 큐에 삽입
         if indegree[i] == 0:
             q.append(i)
     
