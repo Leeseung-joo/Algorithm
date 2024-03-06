@@ -8,9 +8,9 @@ count = 0
 
 for i in  scared_list:
     count += 1 #현재 그룹에 해당 모험가를 포함시키기
-    if count >= i:
-        result += 1
-        count = 0
+    if count >= i: #현재 그룹에 포함된 모험가의 수가 현재의 공포도 이상이라면, 그룹 결성
+        result += 1 #총 그룹의 수 증가
+        count = 0 #현재 그룹에 포함된 모험가의 수 초기화
 print(result)
         
     
