@@ -11,4 +11,4 @@ for t in range(N):
         num = num % len(arr)
  
     answer.append(str(arr.pop(num)))
-print("<",", ".join(answer)[:],">", sep='')
+print("<",", ".join(answer),">", sep='')
