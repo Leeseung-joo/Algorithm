@@ -1,24 +1,31 @@
-n = int(input())
+import sys
 
-tree = [list(map(int,(input()))) for _ in range(n)]
-print(tree)
-result = []
+def quad_tree(x,y,N):
+    point = tree[x][y]
 
-def quad_tree(x,y,n):
-    global result
-    color = tree[x][y]
+    for i in range(x,x+N):
+        for j in range(y,y+N):
+            if point != tree[i][j]: # 같은 색의 점이 아니면 분활
+                answer.append("(") # 분할될 때 마다 괄호 추가
+                quad_tree(x,y,N//2) # 2 사분면
+                quad_tree(x,y+N//2,N//2) # 3 사분면
+                quad_tree(x+N//2,y,N//2) # 1 사분면
+                quad_tree(x+N//2,y+N//2,N//2) # 4 사분면
+                answer.append(")") # 분할될 때 마다 괄호 추가
 
-    for i in range(x, x+n):
-        for j in range(y, y+n):
-            if color != tree[i][j]: # 범위안에 한개라도 다른경우는 4분면으로 나눠서 다시 검색
-                result.append("(") # 4분면으로 나눌때 괄호를 친다.
-                quad_tree(x,y,n//2)
-                quad_tree(x, y+n//2, n//2)
-                quad_tree(x+n//2, y, n//2)
-                quad_tree(x+n//2, y+n//2, n//2)
-                result.append(")")
-                return
-    result.append(color) # 재귀로 안들어가고 for문이 전부 다 끝난 상태이기 때문에 범위안에 모든수가 같다고 볼 수 있다.
+                return answer
+                
+    if point == '1':
+        answer.append('1')   
+             
+    if point == '0':
+        answer.append('0')        
 
-quad_tree(0,0,n)
-print("".join(map(str,(result))))
+    return answer
+
+
+N = int(sys.stdin.readline())
+tree = [sys.stdin.readline().rstrip() for _ in range(N)]
+answer = []
+
+print(''.join(quad_tree(0,0,N)))
