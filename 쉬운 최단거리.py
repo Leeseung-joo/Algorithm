@@ -28,8 +28,8 @@ for i in range(n):
     for j in range(m):
         if graph[i][j] == 2 and visited[i][j] == -1:
             bfs(i,j)
-for i in range(N):
-    for j in range(M):
+for i in range(n):
+    for j in range(m):
         if graph[i][j] == 0:
             print(0, end=' ')
         else:
