@@ -10,7 +10,7 @@ def bfs(s):
         current = q.popleft()
         if current == k:
             return visited[k]
-        for i in (current+1,current-1,current*2):
+        for i in (current+1,current-1,current*2): #스킬!!
             if 0<=i<=MAX and not visited[i]:
                 visited[i] = visited[current]+1
                 q.append(i)
