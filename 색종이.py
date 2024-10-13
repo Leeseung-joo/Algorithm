@@ -19,4 +19,3 @@ sum_array = 0
 for i in range(100):
     sum_array += sum(map_array[i])
 print(sum_array)
-출처: https://datalabbit.tistory.com/141 [간토끼 DataMining Lab:티스토리]
